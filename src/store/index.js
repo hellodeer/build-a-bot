@@ -21,6 +21,10 @@ export default new Vuex.Store({
     getParts({ commit }) {
       Axios.get('/api/parts').then((result) => commit('updateParts', result.data)).catch(console.error);
     },
+    addRobotToCart({ commit, state }, robot) {
+      const cart = [...state.cart, robot];
+      Axios.post('/api/cart', cart).then(() => commit('addRobotToCart', robot));
+    },
   },
   getters: {
     cartSaleItems(state) {
