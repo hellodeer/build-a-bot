@@ -44,18 +44,35 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'App',
   computed: {
-    rootFoo() {
-      return this.$store.state.foo;
-    },
-    robotsFoo() {
-      return this.$store.state.robots.foo;
-    },
-    usersFoo() {
-      return this.$store.state.users.foo;
-    },
+    // rootFoo: 'foo' replaces "alpha"
+    // usersFoo: (state) => state.Users.foo replaces "beta"
+    ...mapState({
+      rootFoo: 'foo',
+      usersFoo: (state) => state.users.foo,
+    }),
+    // The ...mapState below only works with namespaced modules
+    // replacing calls to a module's state. "gamma"
+    ...mapState('robots', { robotsFoo: 'foo' }),
+    // "alpha"
+    // rootFoo() {
+    //   return this.$store.state.foo;
+    // },
+
+    // "gamma"
+    // robotsFoo() {
+    //   return this.$store.state.robots.foo;
+    // },
+
+    // "beta"
+    // usersFoo() {
+    //   return this.$store.state.users.foo;
+    // },
+
     rootGetterFoo() {
       return this.$store.getters.foo;
     },
