@@ -11,9 +11,7 @@
     </router-link>
     <button @click="selectPreviousPart()" class="prev-selector"></button>
     <button @click="selectNextPart()" class="next-selector"></button>
-    <!-- Pass argments to custom directive like so -->
-    <!-- <span v-pin:position.bottom.left class="sale" v-show="selectedPart.onSale">Sale!</span> -->
-    <span v-pin= "{bottom: '5px', right: '5px'}" class="sale"
+    <span v-pin= "{bottom: '5px', right: '10px'}" class="sale"
       v-show="selectedPart.onSale">Sale!</span>
   </div>
 </template>

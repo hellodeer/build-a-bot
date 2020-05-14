@@ -1,15 +1,27 @@
 /* eslint-disable no-param-reassign */
-export default {
-  bind: (element, binding) => {
-    // This was used when passing arguments
-    // if (binding.arg !== 'position') return;
+export default function (element, binding) {
+  Object.keys(binding.value).forEach((position) => {
+    element.style[position] = binding.value[position];
+  });
+  element.style.position = 'absolute';
+}
 
-    // Object.keys(binding.modifiers).forEach((key) => {
-    //   element.style[key] = '5px';
-    // });
-    Object.keys(binding.value).forEach((position) => {
-      element.style[position] = binding.value[position];
-    });
-    element.style.position = 'absolute';
-  },
-};
+
+// There is an easier way to use same functionality for bind and update lifecylce hooks than below.
+// Presented above.
+
+// function applyStyle(element, binding) {
+//   Object.keys(binding.value).forEach((position) => {
+//     element.style[position] = binding.value[position];
+//   });
+//   element.style.position = 'absolute';
+// }
+
+// export default {
+//   bind: (element, binding) => {
+//     applyStyle(element, binding);
+//   },
+//   update: (element, binding) => {
+//     applyStyle(element, binding);
+//   },
+// };
