@@ -10,7 +10,7 @@ The production build of this course can be used with Jim's [build-a-bot-server](
 Standing at the root of the build-a-bot project run the command: `npm run build`
 This will create a dist folder, containing the production build, under your project.
 
-* Copy that dist folder to the root of the buld-a-bot-server project.
+* Copy that dist folder to the root of the build-a-bot-server project.
 
 #### Make these changes to the build-a-bot-server project
 
