@@ -22,6 +22,7 @@ _This needs to be done for deep linking to work (so the user may be sent to spec
 * Modify index.js
 
 You need to add three lines of code
+
 This one at row 3:
 `const history = require("connect-history-api-fallback");`
 
