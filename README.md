@@ -29,8 +29,10 @@ This one at row 7:
 `app.use(history());`
 
 and just above the last line `app.listen(8081, () => console.log("Server listening on port 8081!"));`
+
 you add the following: 
 `app.use("/", express.static("dist", { index: "index.html" }));`
 
 * Start the server: `npm start`
+
 Hopefully you will be able to try out the app in your web browser on address: http://localhost:8081/
